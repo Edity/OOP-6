@@ -22,21 +22,18 @@ bool Knight::accept(std::shared_ptr<NPC> visitor)
     return visitor->fight(std::dynamic_pointer_cast<Knight>(shared_from_this()));
 }
 
-// Рыцарь убивает драконов
 bool Knight::fight(std::shared_ptr<Dragon> other)
 {
     fight_notify(other, true);
     return true;
 }
 
-// Эльф убивает рыцарей
 bool Knight::fight(std::shared_ptr<Elf> other)
 {
     fight_notify(other, false);
     return false;
 }
 
-// Рыцарь vs Рыцарь - ничья
 bool Knight::fight(std::shared_ptr<Knight> other)
 {
     fight_notify(other, false);
